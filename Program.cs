@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,32 +11,34 @@ namespace PersNumbCecker
     {
         static void Main(string[] args)
         {
-            int[] persNumb;
-            Console.Write("input your personal number: ");
-            while (!int.TryParse(Console.ReadLine(), out persNumb))
+            bool numAmountOk = false;
+            bool yearOk = false;
+            string userInput = "200008144131";
+            int[] intArray = new int[12];
+            for (int i = 0; i < userInput.Length; i++)
             {
-                Console.WriteLine("Please enter numbers only");
-                Console.Write("input your personal number: ");
+                intArray[i] = userInput[i];
             }
-            CorectNum(persNumb);
+            numAmountOk = CorectNum(intArray);
+            yearOk = Year(intArray);
+
         }
 
 
-        static bool CorectNum(int[] persNumb)
-        { 
-            
-            if (persNumb.Length == 12)
+        static bool CorectNum(int[] intarray)
+        {
+            if(intarray.Length == 12)
             {
                 return true;
             }
             else
-            { 
+            {
                 return false;
             }
         }
-        static bool SkottAr()
+        static bool Year(int[] intarray)
         {
-            // if year is skottAr
+            
         }
         static bool Month()
         {
