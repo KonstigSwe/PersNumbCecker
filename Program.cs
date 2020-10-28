@@ -16,10 +16,13 @@ namespace PersNumbCecker
             bool yearOk = false;
             bool monthOk = false;
             bool dayOk = false;
-            string userInput = "200008144131";
-            int[] intArray = new int[12];
+            string manwom;//a play on wom man 
+            string userInput;
+            
             Console.WriteLine("input personal number");
-            for (int i = 0; i < userInput.Length; i++)
+            userInput =Console.ReadLine();
+            int[] intArray = new int[userInput.Length];
+            for (int i = 0; i < userInput.Length ; i++)
             {
                 intArray[i] = int.Parse(userInput[i].ToString());
             }   
@@ -28,10 +31,11 @@ namespace PersNumbCecker
             yearOk = year(intArray);
             monthOk = Month(intArray);
             dayOk = Days(intArray, shotyearOk);
-
+            manwom = Gender(intArray);
             if(numAmountOk == true && yearOk  == true && monthOk == true && dayOk == true)
             {
                 Console.WriteLine(" your personal number is correct");
+                Console.WriteLine("your a {0}", manwom);
             }
             else { Console.WriteLine("something went wrong"); }
             Console.ReadKey();
@@ -42,10 +46,12 @@ namespace PersNumbCecker
         {// cecks if there is corect amount off numbers
             if(intarray.Length == 12)
             {
+               
                 return true;
             }
             else
             {
+                
                 return false;
             }
         }
@@ -71,7 +77,9 @@ namespace PersNumbCecker
                 {
                     return true;
                 }
-                else { return false; 
+                else 
+                { 
+                    return false; 
                 }
             }
             else
@@ -257,22 +265,29 @@ namespace PersNumbCecker
                         }
                         break;
                     default:return false; break;
-
                 }
             }
-
-
             else
             {
                 return false;
             }
-           
-
         }
 
-        static string Gender()
+        static string Gender(int[] intarray)
         {
-            
+            int sum;
+            sum = intarray[8] * 100;
+            sum = sum + intarray[9] * 10;
+            sum = sum + intarray[10] * 1;
+
+            if(sum % 2 == 0)
+            {
+                return "Female";
+            }
+            else
+            {
+                return "Man";
+            }
         }
     }
 }
