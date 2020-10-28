@@ -10,7 +10,7 @@ namespace PersNumbCecker
     class Program
     {
         static void Main(string[] args)
-        {
+        { int numbtransfer = 0;
             bool numAmountOk = false;
             bool shotyearOk = false;
             bool yearOk = false;
@@ -21,9 +21,8 @@ namespace PersNumbCecker
             Console.WriteLine("input personal number");
             for (int i = 0; i < userInput.Length; i++)
             {
-                
-                intArray[i] = Console.Read();
-            }
+                intArray[i] = int.Parse(userInput[i].ToString());
+            }   
             numAmountOk = CorectNum(intArray);
             shotyearOk = shotyear(intArray);
             yearOk = year(intArray);
@@ -40,7 +39,7 @@ namespace PersNumbCecker
 
 
         static bool CorectNum(int[] intarray)
-        {
+        {// cecks if there is corect amount off numbers
             if(intarray.Length == 12)
             {
                 return true;
@@ -51,7 +50,7 @@ namespace PersNumbCecker
             }
         }
         static bool shotyear(int[] intarray)
-        {
+        {// checks if its a skott år 
             int sum;
             sum = intarray[1] * 1000;
             sum = sum + intarray[2] * 100;
@@ -82,7 +81,7 @@ namespace PersNumbCecker
 
         }
         static bool year(int[] intarray)
-        {
+        {//cecks if the year is valid
             int sum;
             sum = intarray[0] * 1000;
             sum = sum + intarray[1] * 100;
@@ -99,7 +98,7 @@ namespace PersNumbCecker
             }
         }
         static bool Month(int[] intarray)
-        {
+        {//checks if the month is valid
             int sum;
             sum = intarray[4] * 10;
             sum = sum + intarray[5] * 1;
@@ -114,7 +113,7 @@ namespace PersNumbCecker
             }
         }
         static bool Days(int[] intarray, bool shotyear)
-        {
+        {//checs if the days are valid
             int daySum;
             int monthsum;
             monthsum = intarray[4] * 10;
@@ -137,7 +136,7 @@ namespace PersNumbCecker
                         break;
                     case 2:
 
-                        if (shotyear == true)
+                        if (shotyear == true)// checks if it is shot year or not
                         {
                             if (0 < daySum && daySum < 30)
                             {
@@ -271,6 +270,9 @@ namespace PersNumbCecker
 
         }
 
-
+        static string Gender()
+        {
+            
+        }
     }
 }
