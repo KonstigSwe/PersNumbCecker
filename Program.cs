@@ -10,15 +10,13 @@ namespace PersNumbCecker
     class Program
     {
         static void Main(string[] args)
-        { int numbtransfer = 0;
-            bool numAmountOk = false;
+        {   bool numAmountOk = false;
             bool shotyearOk = false;
             bool yearOk = false;
             bool monthOk = false;
             bool dayOk = false;
-            string manwom;//a play on wom man 
-            string userInput;
-            
+            string manwom;//Takes the string from gender()
+            string userInput;// colects user input
             Console.WriteLine("input personal number");
             userInput =Console.ReadLine();
             int[] intArray = new int[userInput.Length];
@@ -36,27 +34,24 @@ namespace PersNumbCecker
             {
                 Console.WriteLine(" your personal number is correct");
                 Console.WriteLine("your a {0}", manwom);
+                Console.ReadKey();
             }
             else { Console.WriteLine("something went wrong"); }
             Console.ReadKey();
         }
-
-
-        static bool CorectNum(int[] intarray)
-        {// cecks if there is corect amount off numbers
+        static bool CorectNum(int[] intarray)// cecks if there is corect amount off numbers in user input
+        {
             if(intarray.Length == 12)
             {
-               
                 return true;
             }
             else
-            {
-                
+            {   
                 return false;
             }
         }
-        static bool shotyear(int[] intarray)
-        {// checks if its a skott år 
+        static bool shotyear(int[] intarray)// checks if its a skott år 
+        {
             int sum;
             sum = intarray[1] * 1000;
             sum = sum + intarray[2] * 100;
@@ -86,16 +81,14 @@ namespace PersNumbCecker
             {
                 return false;
             }
-
         }
-        static bool year(int[] intarray)
-        {//cecks if the year is valid
+        static bool year(int[] intarray)//cecks if the year is valid
+        {
             int sum;
             sum = intarray[0] * 1000;
             sum = sum + intarray[1] * 100;
             sum = sum + intarray[2] * 10;
             sum = sum + intarray[3] * 1;
-
             if (sum < 2020 && sum > 1753)
             {
                 return true;
@@ -105,8 +98,8 @@ namespace PersNumbCecker
                 return false;
             }
         }
-        static bool Month(int[] intarray)
-        {//checks if the month is valid
+        static bool Month(int[] intarray)//checks if the month is valid
+        {
             int sum;
             sum = intarray[4] * 10;
             sum = sum + intarray[5] * 1;
@@ -120,8 +113,8 @@ namespace PersNumbCecker
                 return false;
             }
         }
-        static bool Days(int[] intarray, bool shotyear)
-        {//checs if the days are valid
+        static bool Days(int[] intarray, bool shotyear)//checks if the days are valid
+        {
             int daySum;
             int monthsum;
             monthsum = intarray[4] * 10;
@@ -141,9 +134,7 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 2:
-
                         if (shotyear == true)// checks if it is shot year or not
                         {
                             if (0 < daySum && daySum < 30)
@@ -163,7 +154,6 @@ namespace PersNumbCecker
                                 return false;
                             }
                         }
-                        break;
                     case 3:
                         if (0 < daySum && daySum < 32)
                         {
@@ -172,9 +162,7 @@ namespace PersNumbCecker
                         else
                         {
                             return false;
-                        }
-                        break;
-                    case 4:
+                        }                    case 4:
                         if (0 < daySum && daySum < 30)
                         {
                             return true;
@@ -183,7 +171,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 5:
                         if (0 < daySum && daySum < 31)
                         {
@@ -193,7 +180,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 6:
                         if (0 < daySum && daySum < 30)
                         {
@@ -203,7 +189,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 7:
                         if (0 < daySum && daySum < 31)
                         {
@@ -213,7 +198,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 8:
                         if (0 < daySum && daySum < 31)
                         {
@@ -223,7 +207,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 9:
                         if (0 < daySum && daySum < 30)
                         {
@@ -233,7 +216,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 10:
                         if (0 < daySum && daySum < 31)
                         {
@@ -243,7 +225,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 11:
                         if (0 < daySum && daySum < 30)
                         {
@@ -253,7 +234,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     case 12:
                         if (0 < daySum && daySum < 31)
                         {
@@ -263,7 +243,6 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                        break;
                     default:return false; break;
                 }
             }
@@ -272,8 +251,7 @@ namespace PersNumbCecker
                 return false;
             }
         }
-
-        static string Gender(int[] intarray)
+        static string Gender(int[] intarray)//Checks the gender
         {
             int sum;
             sum = intarray[8] * 100;
