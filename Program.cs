@@ -53,10 +53,10 @@ namespace PersNumbCecker
         static bool shotyear(int[] intarray)// checks if its a skott år 
         {
             int sum;
-            sum = intarray[1] * 1000;
-            sum = sum + intarray[2] * 100;
-            sum = sum + intarray[3] * 10;
-            sum = sum + intarray[4] * 1;
+            sum = intarray[0] * 1000;
+            sum = sum + intarray[1] * 100;
+            sum = sum + intarray[2] * 10;
+            sum = sum + intarray[3] * 1;
 
             if (sum< 2020 && sum> 1753)
             {
@@ -120,7 +120,7 @@ namespace PersNumbCecker
             monthsum = intarray[4] * 10;
             monthsum = monthsum + intarray[5] * 1;
             daySum = intarray[6] * 10;
-            daySum = intarray[7] * 1;
+            daySum = daySum + intarray[7] * 1;
 
             if (0 < monthsum && monthsum < 13)
             {
