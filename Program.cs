@@ -10,34 +10,35 @@ namespace PersNumbCecker
     class Program
     {
         static void Main(string[] args)
-        {   bool numAmountOk = false;
+        {  
+            bool numAmountOk = false;
             bool shotyearOk = false;
             bool yearOk = false;
             bool monthOk = false;
             bool dayOk = false;
             string manwom;//Takes the string from gender()
             string userInput;// colects user input
-            Console.WriteLine("input personal number");
-            userInput =Console.ReadLine();
-            int[] intArray = new int[userInput.Length];
-            for (int i = 0; i < userInput.Length ; i++)
-            {
-                intArray[i] = int.Parse(userInput[i].ToString());
-            }   
-            numAmountOk = CorectNum(intArray);
-            shotyearOk = shotyear(intArray);
-            yearOk = year(intArray);
-            monthOk = Month(intArray);
-            dayOk = Days(intArray, shotyearOk);
-            manwom = Gender(intArray);
-            if(numAmountOk == true && yearOk  == true && monthOk == true && dayOk == true)
-            {
-                Console.WriteLine(" your personal number is correct");
-                Console.WriteLine("your a {0}", manwom);
-                Console.ReadKey();
-            }
-            else { Console.WriteLine("something went wrong"); }
-            Console.ReadKey();
+                Console.WriteLine("input personal number: ");
+                userInput = Console.ReadLine();
+                    int[] intArray = new int[userInput.Length];
+                    for (int i = 0; i < userInput.Length; i++)
+                    {
+                        intArray[i] = int.Parse(userInput[i].ToString());
+                    }
+                    numAmountOk = CorectNum(intArray);
+                    shotyearOk = shotyear(intArray);
+                    yearOk = year(intArray);
+                    monthOk = Month(intArray);
+                    dayOk = Days(intArray, shotyearOk);
+                    manwom = Gender(intArray);
+                    if (numAmountOk == true && yearOk == true && monthOk == true && dayOk == true)
+                    {
+                        Console.WriteLine(" your personal number is correct");
+                        Console.WriteLine("your a {0}", manwom);
+                        Console.ReadKey();
+                    }
+                    else { Console.WriteLine("something went wrong"); }
+                    Console.ReadKey();     
         }
         static bool CorectNum(int[] intarray)// cecks if there is corect amount off numbers in user input
         {
@@ -243,7 +244,7 @@ namespace PersNumbCecker
                         {
                             return false;
                         }
-                    default:return false; break;
+                    default:return false; 
                 }
             }
             else
