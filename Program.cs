@@ -20,8 +20,8 @@ namespace PersNumbCecker
             string userInput;// colects user input
                 Console.WriteLine("input personal number: ");
                 userInput = Console.ReadLine();
-                    int[] intArray = new int[userInput.Length];
-                    for (int i = 0; i < userInput.Length; i++)
+                    int[] intArray = new int[userInput.Length];//aray to have the input numbers in
+                    for (int i = 0; i < userInput.Length; i++) //adds input numbers ti array
                     {
                         intArray[i] = int.Parse(userInput[i].ToString());
                     }
@@ -31,13 +31,13 @@ namespace PersNumbCecker
                     monthOk = Month(intArray);
                     dayOk = Days(intArray, shotyearOk);
                     manwom = Gender(intArray);
-                    if (numAmountOk == true && yearOk == true && monthOk == true && dayOk == true)
+                    if (numAmountOk == true && yearOk == true && monthOk == true && dayOk == true)// checks if all demands are met 
                     {
                         Console.WriteLine(" your personal number is correct");
                         Console.WriteLine("your a {0}", manwom);
                         Console.ReadKey();
                     }
-                    else { Console.WriteLine("something went wrong"); }
+                    else { Console.WriteLine("yor personal number is incorect "); }// not all demands were met
                     Console.ReadKey();     
         }
         static bool CorectNum(int[] intarray)// cecks if there is corect amount off numbers in user input
